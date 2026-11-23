@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>巴塞罗那自治大学</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <header>
+        <div class="logo-fuab">
+            <img class="logo-verd" src="img/logo-fuab.png" alt="FUAB · Fundació Universitat Autònoma de Barcelona">
+            <img class="logo-blanc" src="img/logo-fuab-blanc.png" alt="FUAB · Fundació Universitat Autònoma de Barcelona">
+            <button type="button" class="icona-menu" id="icona-burger" aria-label="菜单" aria-expanded="false" aria-controls="menupral">
+                <img class="menu-burger" src="img/menu.svg" alt="">
+            </button>    
+        </div>
+        <nav id="menupral">
+            <ul>
+                <li class="puntprincipal">
+                    <button type="button" class="titol-puntprincipal" aria-expanded="false">在大学学习</button>
+                    <ul class="menusecundari">
+                        <li>热门专业</li>
+                    </ul>
+                </li>
+                <li class="puntprincipal">
+                    <button type="button" class="titol-puntprincipal" aria-expanded="false">大学生活</button>
+                    <ul class="menusecundari">
+                        <li>热门专业</li>
+                    </ul>
+                </li>
+                <li class="puntprincipal">关于大学</li>
+                <li class="puntprincipal">最新动态</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="landing">
+        <section id="hero-studyabroad" aria-labelledby="titol-hero">
+            <div class="hero-contingut">
+                <h1 id="titol-hero">在巴塞罗那体验大学生活</h1>
+                <ul class="hero-punts">
+                    <li>专为国际学生设计的项目</li>
+                    <li>可选择专业项目或本科课程</li>
+                    <li>在巴塞罗那用英语、西班牙语或加泰罗尼亚语学习</li>
+                    <li>就读于西班牙顶尖大学之一——巴塞罗那自治大学</li>
+                </ul>
+                <a href="#contacta" class="contacta-boto contacta-boto--hero">
+                    <svg class="icona-boto" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+                    </svg>
+                    联系我们
+                </a>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             CONTINGUT PROVISIONAL: tots els textos de les seccions següents
+             són de mostra i s'han de revisar/substituir abans de publicar.
+             ================================================================ -->
+
+        <!-- 1. Quin és el teu programa? -->
+        <section id="programes" class="seccio-landing" aria-labelledby="titol-programes">
+            <div class="seccio-interior">
+                <h2 id="titol-programes" class="titol-seccio">哪个项目适合你？</h2>
+                <p class="intro-seccio">根据你的学习目标和时间安排，选择最适合你的项目。</p>
+                <div class="graella graella-3">
+                    <!-- Programa 1: Pre-Established -->
+                    <article class="targeta-programa" aria-labelledby="programa-pre">
+                        <div class="programa-capcalera">
+                            <p class="programa-desig"><span>我想……</span>参加短期专业项目</p>
+                            <h3 id="programa-pre" class="programa-nom">Pre-Established</h3>
+                        </div>
+                        <div class="targeta-text">
+                            <ul class="llista-check">
+                                <li>时长灵活：3周、6周或15周</li>
+                                <li>40多门课程，两个学期最多可获得60个ECTS学分</li>
+                                <li>所获证书可在原就读大学申请学分认定</li>
+                                <li>西班牙语课程共9个级别，零基础也可参加</li>
+                                <li>位于巴塞罗那市中心、设施完善的校区</li>
+                                <li>国际化的课堂环境</li>
+                                <li>多元、包容的项目</li>
+                            </ul>
+                            <a href="#" class="enllac-fletxa">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- Programa 2: Selected -->
+                    <article class="targeta-programa" aria-labelledby="programa-selected">
+                        <div class="programa-capcalera">
+                            <p class="programa-desig"><span>我想……</span>选修本科课程</p>
+                            <h3 id="programa-selected" class="programa-nom">Selected</h3>
+                        </div>
+                        <div class="targeta-text">
+                            <ul class="llista-check">
+                                <li>自由选修巴塞罗那自治大学不同本科专业的课程</li>
+                                <li>授课语言：英语、西班牙语和加泰罗尼亚语</li>
+                                <li>两个学期最多可获得60个ECTS学分</li>
+                                <li>所获证书可在原就读大学申请学分认定</li>
+                                <li>与本地及国际学生同堂上课</li>
+                                <li>位于贝拉特拉（Bellaterra）校区，距巴塞罗那30公里</li>
+                            </ul>
+                            <a href="#" class="enllac-fletxa">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- Programa 3: BME -->
+                    <article class="targeta-programa" aria-labelledby="programa-bme">
+                        <div class="programa-capcalera">
+                            <p class="programa-desig"><span>我想……</span>专攻工商管理</p>
+                            <h3 id="programa-bme" class="programa-nom">BME</h3>
+                        </div>
+                        <div class="targeta-text">
+                            <ul class="llista-check">
+                                <li>在这一独特的双学士学位项目中，你将在三个不同国家学习三年，专攻工商管理（Business Management），第一年在巴塞罗那就读</li>
+                                <li>180个ECTS学分的双学士学位，全程英语授课</li>
+                                <li>注重应用与实践，帮助学生为进入国际商业环境做好准备</li>
+                            </ul>
+                            <a href="#" class="enllac-fletxa">了解更多</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Què t'emportes de l'experiència? -->
+        <section id="beneficis" class="seccio-landing seccio-gris" aria-labelledby="titol-beneficis">
+            <div class="seccio-interior">
+                <h2 id="titol-beneficis" class="titol-seccio">你将收获什么？</h2>
+                <div class="graella graella-3 llista-beneficis">
+                    <div class="benefici">
+                        <h3><span class="etiqueta-programa">Pre-Established</span></h3>
+                        <ul class="llista-punts">
+                            <li>校区位于巴塞罗那市中心</li>
+                            <li>生活在欧洲最国际化、最多元的城市之一</li>
+                            <li>感受充满文化气息的多元文化环境</li>
+                        </ul>
+                    </div>
+                    <div class="benefici">
+                        <h3><span class="etiqueta-programa">Selected</span></h3>
+                        <ul class="llista-punts">
+                            <li>贝拉特拉（Bellaterra）校区，绿意环绕，亲近自然</li>
+                            <li>与本地及国际学生一起上课，共享大学生活</li>
+                            <li>各类服务一应俱全，乘公共交通约30分钟即可到达巴塞罗那</li>
+                        </ul>
+                    </div>
+                    <div class="benefici">
+                        <h3><span class="etiqueta-programa">BME</span></h3>
+                        <ul class="llista-punts">
+                            <li>以巴塞罗那为起点，开启你的国际之旅</li>
+                            <li>三年时间，三个国家</li>
+                            <li>结识来自世界各地的朋友，专攻工商管理（Business Management）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Tot el que necessites per a la teva estada -->
+        <section id="serveis" class="seccio-landing" aria-labelledby="titol-serveis">
+            <div class="seccio-interior">
+                <h2 id="titol-serveis" class="titol-seccio">留学所需的一切</h2>
+                <p class="intro-seccio">从抵达前到学习结束，我们全程为你提供支持。</p>
+                <!-- Títols definitius; textos descriptius PROVISIONALS -->
+                <ul class="llista-serveis">
+                    <li>
+                        <h3>住宿</h3>
+                        <p>多种住宿选择，满足不同需求和预算。</p>
+                    </li>
+                    <li>
+                        <h3>安全</h3>
+                        <p>安全、友好的城市环境，让你安心学习和生活。</p>
+                    </li>
+                    <li>
+                        <h3>宜人气候</h3>
+                        <p>地中海气候，全年阳光充足。</p>
+                    </li>
+                    <li>
+                        <h3>生活方式</h3>
+                        <p>体验轻松惬意的地中海生活方式。</p>
+                    </li>
+                    <li>
+                        <h3>文化</h3>
+                        <p>丰富的博物馆、建筑和节庆活动。</p>
+                    </li>
+                    <li>
+                        <h3>交通便利</h3>
+                        <p>便捷的公共交通，轻松前往欧洲各地。</p>
+                    </li>
+                    <li>
+                        <h3>生活成本</h3>
+                        <p>与欧洲其他大城市相比，生活成本适中。</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 4. El teu camí a Barcelona -->
+        <section id="cami" class="seccio-landing seccio-gris" aria-labelledby="titol-cami">
+            <div class="seccio-interior">
+                <h2 id="titol-cami" class="titol-seccio">你的巴塞罗那之路</h2>
+                <ol class="passos">
+                    <li>
+                        <h3>咨询我们</h3>
+                        <p>通过微信解答疑问，获取专业建议。</p>
+                    </li>
+                    <li>
+                        <h3>选择项目</h3>
+                        <p>找到最符合你学业目标的项目。</p>
+                    </li>
+                    <li>
+                        <h3>申请入学</h3>
+                        <p>完成申请流程。</p>
+                    </li>
+                    <li>
+                        <h3>准备行程</h3>
+                        <p>我们将为你提供证件、签证和住宿方面的指导。</p>
+                    </li>
+                    <li>
+                        <h3>抵达巴塞罗那</h3>
+                        <p>做好准备，开启你的留学体验。</p>
+                    </li>
+                    <li>
+                        <h3>开启新旅程</h3>
+                        <p>熟悉校园、城市和你的新大学社区。</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- 5. Testimonis (noms i textos de mostra) -->
+        <section id="testimonis" class="seccio-landing" aria-labelledby="titol-testimonis">
+            <div class="seccio-interior">
+                <h2 id="titol-testimonis" class="titol-seccio">学生评价</h2>
+                <div class="graella graella-3">
+                    <figure class="testimoni">
+                        <img src="img/estudiant-oriental-01.jpg" alt="" loading="lazy">
+                        <blockquote>
+                            <p>“[学生评价内容]”</p>
+                        </blockquote>
+                        <figcaption><strong>[学生姓名]</strong>[项目名称]</figcaption>
+                    </figure>
+                    <figure class="testimoni">
+                        <img src="img/estudiant-oriental-02.jpg" alt="" loading="lazy">
+                        <blockquote>
+                            <p>“[学生评价内容]”</p>
+                        </blockquote>
+                        <figcaption><strong>[学生姓名]</strong>[项目名称]</figcaption>
+                    </figure>
+                    <figure class="testimoni">
+                        <img src="img/estudiant-oriental-03.jpg" alt="" loading="lazy">
+                        <blockquote>
+                            <p>“[学生评价内容]”</p>
+                        </blockquote>
+                        <figcaption><strong>[学生姓名]</strong>[项目名称]</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Contacta amb nosaltres -->
+        <section id="contacta" class="seccio-landing seccio-contacta" aria-labelledby="titol-contacta">
+            <div class="seccio-interior">
+                <h2 id="titol-contacta" class="titol-seccio">联系我们</h2>
+                <p class="intro-seccio">有任何问题？我们的团队很乐意为你解答。</p>
+                <div class="contacta-accions">
+                    <a href="#" class="boto-blanc">发送咨询</a>
+                    <a href="#" class="boto-wechat">
+                        <img src="img/wechat.svg" alt="" width="28" height="28">
+                        微信咨询
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Preguntes més freqüents -->
+        <section id="faq" class="seccio-landing" aria-labelledby="titol-faq">
+            <div class="seccio-interior seccio-estreta">
+                <h2 id="titol-faq" class="titol-seccio">常见问题</h2>
+                <div class="faq">
+                    <details>
+                        <summary>申请需要什么语言水平？</summary>
+                        <p>[待补充]</p>
+                    </details>
+                    <details>
+                        <summary>项目持续多长时间？</summary>
+                        <p>[待补充]</p>
+                    </details>
+                    <details>
+                        <summary>课程学分可以转回国内大学吗？</summary>
+                        <p>[待补充]</p>
+                    </details>
+                    <details>
+                        <summary>学校提供住宿吗？</summary>
+                        <p>[待补充]</p>
+                    </details>
+                    <details>
+                        <summary>申请截止日期是什么时候？</summary>
+                        <p>[待补充]</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="columnes-footer">
+            <div class="columna-footer" id="columna-logo-footer"><img class="logo-footer" src="img/logo-fuab-2.png" alt="FUAB · Fundació Universitat Autònoma de Barcelona">
+                <p>巴塞罗那自治大学是西班牙公立大学中的佼佼者，我们坚守着国际化的承诺，积极推动人才的流动、合作及栽培。UAB在各项主流大学排行榜中均名列前茅：在欧洲各大学中排名前100位，在世界各大学中排名前200位。</p>
+                </div>
+                <div class="columna-footer" id="elements-footer">
+                    <div class="elem-footer">
+                        <h3>在大学学习</h3>
+                        <ul>
+                            <li><a href="#">热门专业</a></li>
+                            <li><a href="#">国际学生专属项目</a></li>
+                            <li><a href="#">录取流程</a></li>
+                            <li><a href="#">申办程序（到达前)</a></li>
+                            <li><a href="#">申办程序（到达后)</a></li>
+                            <li><a href="#">在中国的中介代表</a></li>
+                        </ul>
+                        
+                    </div>
+                    <div class="elem-footer">
+                        <h3>在大学学习</h3>
+                        <ul>
+                            <li><a href="#">热门专业</a></li>
+                            <li><a href="#">国际学生专属项目</a></li>
+                            <li><a href="#">录取流程</a></li>
+                            <li><a href="#">申办程序（到达前)</a></li>
+                            <li><a href="#">申办程序（到达后)</a></li>
+                            <li><a href="#">在中国的中介代表</a></li>
+                        </ul>
+                        
+                    </div>
+            
+                    <div class="elem-footer">
+                        <h3>在大学学习</h3>
+                        <ul>
+                            <li><a href="#">热门专业</a></li>
+                            <li><a href="#">国际学生专属项目</a></li>
+                            <li><a href="#">录取流程</a></li>
+                            <li><a href="#">申办程序（到达前)</a></li>
+                            <li><a href="#">申办程序（到达后)</a></li>
+                            <li><a href="#">在中国的中介代表</a></li>
+                        </ul>
+                        
+                    </div>
+                    <div class="elem-footer">
+                        <h3>在大学学习</h3>
+                        <ul>
+                            <li><a href="#">热门专业</a></li>
+                            <li><a href="#">国际学生专属项目</a></li>
+                            <li><a href="#">录取流程</a></li>
+                            <li><a href="#">申办程序（到达前)</a></li>
+                            <li><a href="#">申办程序（到达后)</a></li>
+                            <li><a href="#">在中国的中介代表</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+        </div>
+        
+        
+
+    </footer>
+    <script src="js/index.js"></script>
+  </body>
+</html>

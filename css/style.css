@@ -309,6 +309,351 @@ li.puntprincipal {
 
 #menulateral-contacta { width: 100%; padding: 1rem 0; text-align: center; }
 
+/* --- 5b. Landing Study Abroad ------------------------------------------- */
+#hero-studyabroad {
+    min-height: 60svh;
+    display: flex;
+    align-items: flex-end;
+    padding: 3rem var(--gutter);
+    /* Degradat només a la part baixa: el text es llegeix i la cara queda neta */
+    background:
+        linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 85%),
+        url(../img/estudiantxines01.jpg) 45% 20% / cover no-repeat;
+}
+.hero-contingut {
+    width: min(100%, var(--amplada-max));
+    margin-inline: auto;
+    color: var(--blanc);
+}
+.hero-contingut h1 {
+    max-width: 14em;
+    font-size: clamp(3.2rem, 2.3rem + 2.25vw, 5.6rem);
+    line-height: 1.25;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+.hero-punts {
+    max-width: 40em;
+    margin-top: 1.5rem;
+    list-style: none;
+    font-size: clamp(1.6rem, 1.42rem + 0.45vw, 2rem);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+.hero-punts li {
+    position: relative;
+    padding-left: 1.4em;
+}
+.hero-punts li + li { margin-top: 0.4em; }
+.hero-punts li::before {        /* marca corporativa en lloc de la vinyeta */
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.6em;
+    height: 0.6em;
+    border-radius: 2px;
+    background-color: var(--verd);
+}
+
+/* Botó de contacte (variant del de la pàgina interior) */
+.contacta-boto--hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    width: auto;
+    margin-top: 2.5rem;
+    padding: 0.6em 1.4em;
+    font-size: clamp(1.8rem, 1.62rem + 0.45vw, 2.2rem);
+    border-radius: 999px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transition: background-color var(--transicio), transform var(--transicio);
+}
+.contacta-boto--hero:hover { transform: translateY(-2px); }
+.contacta-boto--hero:focus-visible {
+    outline: 3px solid var(--blanc);
+    outline-offset: 3px;
+}
+.icona-boto {
+    width: 1.1em;
+    height: 1.1em;
+    fill: currentColor;
+}
+
+/* Estructura comuna de les seccions */
+.seccio-landing { padding: 5rem var(--gutter); scroll-margin-top: 1rem; }
+.seccio-gris { background-color: var(--gris-fons-clar); }
+.seccio-interior { width: min(100%, var(--amplada-max)); margin-inline: auto; }
+.seccio-estreta { width: min(100%, 80rem); }
+
+.titol-seccio {
+    font-size: clamp(2.6rem, 2.1rem + 1.25vw, 3.8rem);
+    color: var(--verd);
+    text-align: center;
+}
+.titol-seccio::after {          /* filet curt sota el títol */
+    content: "";
+    display: block;
+    width: 4rem;
+    height: 4px;
+    margin: 1.2rem auto 0;
+    border-radius: 2px;
+    background-color: currentColor;
+}
+.intro-seccio {
+    max-width: 60rem;
+    margin: 1.5rem auto 0;
+    font-size: var(--fs-text);
+    text-align: center;
+}
+
+.graella {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3.5rem;
+    list-style: none;
+}
+.graella-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 36rem), 1fr)); }
+.graella-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr)); }
+.graella-4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+
+.graella h3 { font-size: 2.2rem; }
+.graella p  { font-size: var(--fs-text); }
+
+/* 1. Programes */
+.targeta-programa {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--blanc);
+    border-radius: var(--radi);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+.programa-capcalera {
+    padding: 2.4rem 2rem;
+    color: var(--blanc);
+    background-color: var(--verd-fosc);
+}
+.programa-desig { font-size: var(--fs-text); line-height: 1.4; }
+.programa-desig span {          /* "我想……" com a avantítol */
+    display: block;
+    font-size: 0.85em;
+    opacity: 0.85;
+}
+.graella .programa-nom {
+    margin-top: 0.8rem;
+    font-size: clamp(2.6rem, 2.3rem + 0.75vw, 3.2rem);
+    letter-spacing: 0.01em;
+}
+.targeta-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Llista amb marques de verificació */
+.llista-check { list-style: none; }
+.llista-check li {
+    position: relative;
+    padding-left: 2.2em;
+    font-size: var(--fs-text);
+}
+.llista-check li + li { margin-top: 0.8em; }
+.llista-check li::before {
+    content: "";
+    position: absolute;
+    left: 0.25em;
+    top: 0.3em;
+    width: 0.45em;
+    height: 0.85em;
+    border: solid var(--verd);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.enllac-fletxa {
+    margin-top: auto;
+    font-weight: bold;
+    color: var(--verd-fosc);
+    text-decoration: none;
+}
+.enllac-fletxa::after { content: " →"; }
+.enllac-fletxa:hover { text-decoration: underline; }
+
+/* 2. Beneficis per programa */
+.benefici {
+    padding: 2.4rem 2rem;
+    background-color: var(--blanc);
+    border-top: 4px solid var(--verd);
+    border-radius: var(--radi);
+}
+.etiqueta-programa {            /* nom del programa en format píndola */
+    display: inline-block;
+    padding: 0.3em 1em;
+    font-size: 1.6rem;
+    color: var(--verd-fosc);
+    background-color: rgba(0, 150, 57, 0.1);
+    border-radius: 999px;
+}
+.llista-punts { margin-top: 1.8rem; list-style: none; }
+.llista-punts li {
+    position: relative;
+    padding-left: 1.6em;
+    font-size: var(--fs-text);
+}
+.llista-punts li + li {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--gris-fons);
+}
+.llista-punts li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.55em;
+    height: 0.55em;
+    border-radius: 50%;
+    background-color: var(--verd);
+}
+.llista-punts li + li::before { top: calc(1.2rem + 0.6em); }
+
+/* 3. Estada: 7 elements; flex centrat perquè l'última fila quedi equilibrada */
+.llista-serveis {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3.5rem;
+    list-style: none;
+}
+.llista-serveis li {
+    flex: 1 1 100%;
+    padding: 2rem;
+    background-color: var(--blanc);
+    border: 1px solid var(--gris-fons);
+    border-left: 4px solid var(--verd);
+    border-radius: var(--radi);
+}
+.llista-serveis h3 { margin-bottom: 0.5rem; font-size: 2.2rem; }
+.llista-serveis p  { font-size: var(--fs-text); }
+
+@media (min-width: 768px) {
+    .llista-serveis li { flex: 0 1 calc((100% - 2rem) / 2); }
+}
+@media (min-width: 1024px) {
+    .llista-serveis li { flex-basis: calc((100% - 3 * 2rem) / 4); }
+}
+
+/* 4. Camí: passos numerats */
+.passos {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: 3.5rem;
+    list-style: none;
+    counter-reset: pas;
+}
+.passos li {
+    position: relative;
+    padding-left: 6rem;
+    counter-increment: pas;
+}
+.passos li::before {
+    content: counter(pas, decimal-leading-zero);   /* 01, 02… */
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: grid;
+    place-items: center;
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--blanc);
+    background-color: var(--verd-fosc);
+}
+.passos h3 { font-size: 2.2rem; }
+.passos p  { font-size: var(--fs-text); }
+
+/* 5. Testimonis */
+.testimoni {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    background-color: var(--gris-fons-clar);
+    border-radius: var(--radi);
+}
+.testimoni img {
+    width: 9rem;
+    height: 9rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--verd);
+}
+.testimoni blockquote p { font-style: italic; }
+.testimoni figcaption { font-size: 1.5rem; color: #555; }
+.testimoni figcaption strong { display: block; font-size: 1.8rem; color: var(--text); }
+
+/* 6. Contacte */
+.seccio-contacta { color: var(--blanc); background-color: var(--verd-fosc); }
+.seccio-contacta .titol-seccio { color: var(--blanc); }
+.contacta-accions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+.boto-blanc,
+.boto-wechat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 0.6em 1.6em;
+    font-size: clamp(1.8rem, 1.62rem + 0.45vw, 2.2rem);
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid var(--blanc);
+    border-radius: 999px;
+    transition: background-color var(--transicio), color var(--transicio);
+}
+.boto-blanc { color: var(--verd-fosc); background-color: var(--blanc); }
+.boto-blanc:hover { background-color: var(--gris-fons); }
+.boto-wechat { color: var(--blanc); background-color: transparent; }
+.boto-wechat:hover { background-color: rgba(255, 255, 255, 0.15); }
+.boto-wechat img { width: 1.4em; height: 1.4em; filter: brightness(0) invert(1); }
+.boto-blanc:focus-visible,
+.boto-wechat:focus-visible { outline: 3px solid var(--blanc); outline-offset: 3px; }
+
+/* 7. Preguntes freqüents */
+.faq { margin-top: 3rem; }
+.faq details { border-bottom: 1px solid #ddd; }
+.faq summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.8rem 0;
+    font-size: clamp(1.7rem, 1.6rem + 0.25vw, 2rem);
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+    content: "+";
+    flex-shrink: 0;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--verd);
+}
+.faq details[open] summary::after { content: "−"; }
+.faq summary:hover { color: var(--verd-fosc); }
+.faq details p { padding-bottom: 1.8rem; font-size: var(--fs-text); }
+
 /* --- 6. Peu ------------------------------------------------------------- */
 footer { background-color: var(--negre); color: var(--blanc); }
 
@@ -482,6 +827,25 @@ footer { background-color: var(--negre); color: var(--blanc); }
     }
     #menulateral-principal h2 { font-size: 2.5rem; }
     #menulateral-contacta { order: 1; padding: 0.5rem 0; }
+
+    /* Landing Study Abroad */
+    #hero-studyabroad { min-height: 75svh; padding-block: 6rem; }
+    .seccio-landing { padding-block: 8rem; }
+
+    /* Camí: els passos en horitzontal, units per una línia */
+    .passos { grid-template-columns: repeat(6, 1fr); gap: 2rem; }
+    .passos li { padding: 6.5rem 0 0; text-align: center; }
+    .passos li::before { left: 50%; transform: translateX(-50%); }
+    .passos li:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 2.1rem;
+        left: calc(50% + 3rem);
+        width: calc(100% - 4rem);
+        height: 2px;
+        background-color: var(--verd);
+        opacity: 0.4;
+    }
 }
 
 /* Desplegables per hover només en dispositius amb ratolí */
