@@ -1,0 +1,509 @@
+/* ==========================================================================
+   FUAB China — full d'estil
+   Mobile-first. Breakpoints: 768px (tauleta) · 1024px (escriptori)
+   ========================================================================== */
+
+/* --- 1. Variables ------------------------------------------------------- */
+:root {
+    /* Colors */
+    --verd: #009639;            /* corporatiu: fons grans, títols, text gran */
+    --verd-fosc: #007a2f;       /* botons amb text blanc (contrast 5,5:1) */
+    --verd-hover: #005c23;
+    --blanc: #fff;
+    --negre: #000;
+    --text: #222;
+    --gris-fons: #f0f0f0;
+    --gris-fons-clar: #f9f9f9;
+    --gris-vora: #aaa;
+
+    /* Mides i espais */
+    --radi: 12px;
+    --amplada-max: 1200px;
+    --gutter: 1.6rem;
+    --alcada-header: 70px;      /* posició dels menús laterals fixos */
+    --vel-fosc: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5));
+    --vel-clar: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65));
+
+    /* Tipografia fluida: valor mòbil (400px) → valor escriptori (1280px) */
+    --fs-text: clamp(1.6rem, 1.51rem + 0.23vw, 1.8rem);
+    --fs-titol-bloc: clamp(2.2rem, 1.84rem + 0.91vw, 3rem);
+    --fs-boto: clamp(2rem, 1.77rem + 0.57vw, 2.5rem);
+
+    --transicio: 0.3s ease;
+}
+
+/* --- 2. Base ------------------------------------------------------------ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { font-size: 62.5%; } /* 1rem = 10px */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+                 "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--blanc);
+}
+
+h1, h2, h3 { line-height: 1.3; }
+
+img { max-width: 100%; height: auto; }
+
+button, input, select, textarea { font: inherit; }
+
+/* Reset dels <button> perquè s'assemblin al text/icona que substitueixen */
+button {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    text-align: inherit;
+    cursor: pointer;
+}
+.icona-menu { display: block; line-height: 0; }
+
+/* Focus visible per a navegació amb teclat */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--verd);
+    outline-offset: 2px;
+}
+
+/* Botons */
+.claim,
+.contacta-boto {
+    display: inline-block;
+    background-color: var(--verd-fosc);
+    color: var(--blanc);
+    text-decoration: none;
+    line-height: 1.3;
+    transition: background-color var(--transicio);
+}
+.claim:hover,
+.contacta-boto:hover { background-color: var(--verd-hover); }
+
+.claim {
+    font-size: var(--fs-boto);
+    margin: 0.25em 0.5em 0.25em 0;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+
+.contacta-boto {
+    width: 100%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: var(--radi);
+    padding: 0.5rem;
+}
+
+/* --- 3. Capçalera i menú principal (mòbil) ------------------------------ */
+header { display: flex; flex-direction: column; }
+
+.logo-fuab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: var(--verd);
+}
+.logo-verd { display: none; }
+.logo-blanc { width: 70%; }
+.icona-menu { text-align: right; }
+.menu-burger { width: 30px; }
+
+#menupral {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 0 0 1rem;
+    border-bottom: 0 solid var(--verd);
+    line-height: 1.3;
+    background: url(../img/top-menu-mobil.svg) top center no-repeat;
+    transition: max-height var(--transicio), opacity var(--transicio),
+                padding var(--transicio), border-bottom-width var(--transicio);
+}
+#menupral.visible {
+    max-height: 600px;
+    opacity: 1;
+    padding-block: 1rem;
+    border-bottom-width: 2px;
+}
+#menupral ul { list-style-type: none; }
+
+li.puntprincipal {
+    margin-bottom: 1em;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.menusecundari {
+    font-weight: 400;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 0 0 1em;
+    transition: max-height 0.4s ease, opacity var(--transicio), padding var(--transicio);
+}
+.puntprincipal.obert .menusecundari {
+    max-height: 30em;           /* prou alt per a submenús llargs */
+    opacity: 1;
+    padding-block: 0.5em;
+}
+
+.separador { display: none; }
+
+/* --- 4. Portada --------------------------------------------------------- */
+#header-main {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: left;
+    background: var(--vel-fosc), url(../img/prova-estdiants-cn.jpg) top center / cover no-repeat;
+}
+
+#lema-portada {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    color: var(--blanc);
+}
+#lema-portada h1 { font-size: clamp(3.75rem, 3.18rem + 1.42vw, 5rem); }
+#lema-portada h2 { font-size: clamp(2rem, 1.32rem + 1.7vw, 3.5rem); }
+#lema-portada p  { font-size: clamp(1.6rem, 1.42rem + 0.45vw, 2rem); padding-top: 1em; }
+
+/* Blocs destacats */
+.bloc-portada {
+    display: flex;
+    padding: 1rem var(--gutter);
+}
+.bloc-portada h2 { font-size: var(--fs-titol-bloc); color: var(--verd); }
+
+.imatge-quadrada {
+    flex: 0 0 150px;
+    width: 150px;
+    height: 100px;
+    overflow: hidden;
+}
+.imatge-quadrada img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.destacat { padding-left: 1rem; }
+.destacat p { font-size: var(--fs-text); }
+
+/* Blocs amb imatge de fons */
+#blocs-altres { display: flex; flex-direction: column; }
+
+.bloc-formacio-mida,
+.bloc-campus-uab {
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+.bloc-formacio-mida {
+    text-align: left;
+    background: var(--vel-fosc), url(../img/classe.jpg) center / cover no-repeat;
+}
+.bloc-campus-uab {
+    text-align: right;
+    background: var(--vel-clar), url(../img/cconv.jpg) center / cover no-repeat;
+}
+
+.text-formacio-mida { color: var(--blanc); }
+.text-formacio-mida h2,
+.bloc-campus-elements h2 { font-size: 3rem; }
+.bloc-campus-elements h2 { color: var(--verd); }
+.text-formacio-mida p,
+.bloc-campus-elements p { padding-block: 0.5em; font-size: var(--fs-text); }
+
+/* --- 5. Pàgina interior ------------------------------------------------- */
+#interior-principal { padding: var(--gutter); }
+
+#contingut { width: 90%; }
+#contingut h1 {
+    color: var(--verd);
+    font-size: clamp(3rem, 2.32rem + 1.7vw, 4.5rem);
+    padding-bottom: 0.5em;
+}
+#contingut h2 {
+    color: var(--verd);
+    font-size: clamp(2rem, 1.77rem + 0.57vw, 2.5rem);
+    padding-bottom: 0.5em;
+}
+#contingut p,
+#contingut li { font-size: var(--fs-text); line-height: 1.75; }
+#contingut p  { padding-bottom: 1em; }
+#contingut ul { margin-left: 3rem; padding-bottom: 1em; }
+
+/* Menú lateral: calaix fix a mòbil/tauleta */
+#menulateral-desplegable {
+    position: fixed;
+    top: var(--alcada-header);
+    right: 0;
+    z-index: 500;
+    padding: 1rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.3;
+    color: var(--blanc);
+    background-color: var(--verd);
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    border-radius: var(--radi) 0 0 var(--radi);
+}
+
+#menulateral {
+    position: fixed;
+    top: var(--alcada-header);
+    right: 0;
+    z-index: 999;
+    min-width: 250px;
+    height: 60vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: var(--gris-fons-clar);
+    border: 1px solid var(--gris-vora);
+    border-radius: var(--radi) 0 0 var(--radi);
+    /* Amagat fora de pantalla i fora de l'ordre de tabulació */
+    transform: translateX(calc(100% + 2px));
+    visibility: hidden;
+    transition: transform var(--transicio), visibility 0s linear 0.3s;
+}
+#menulateral.actiu {
+    transform: none;
+    visibility: visible;
+    transition-delay: 0s;
+}
+#menulateral ul { list-style-type: none; }
+#menulateral h2 { font-size: 2rem; padding-bottom: 1rem; color: var(--verd); }
+#menulateral li { font-size: 1.8rem; padding-bottom: 1rem; }
+
+#tancalateral {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--verd);
+}
+
+#menulateral-contacta { width: 100%; padding: 1rem 0; text-align: center; }
+
+/* --- 6. Peu ------------------------------------------------------------- */
+footer { background-color: var(--negre); color: var(--blanc); }
+
+#columnes-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem var(--gutter);
+}
+
+.logo-footer { width: 150px; }
+.columna-footer p { padding: 0 0.5em; font-size: 1.4rem; }
+
+#elements-footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2rem;
+}
+.elem-footer { padding: 1rem 0; }
+.elem-footer h3 { font-size: 2rem; }
+.elem-footer ul { font-size: 1.6rem; list-style-type: none; }
+.elem-footer a { color: var(--blanc); text-decoration: none; }
+.elem-footer a:hover { text-decoration: underline; }
+
+/* ==========================================================================
+   Tauleta (≥ 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+    #blocs-portada,
+    #blocs-altres,
+    #columnes-footer {
+        width: min(100% - 2 * var(--gutter), var(--amplada-max));
+        margin: 3rem auto;
+    }
+
+    #blocs-portada {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .bloc-portada { flex-direction: column; padding: 0; }
+    .bloc-portada h2 { padding-block: 0.3em; }
+    .imatge-quadrada { flex-basis: auto; width: 100%; height: 200px; }
+    .destacat { padding: 0; }
+
+    #blocs-altres { flex-direction: row; gap: 20px; }
+    .bloc-formacio-mida,
+    .bloc-campus-uab { flex: 1; }
+
+    #columnes-footer {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-block: 0;
+        padding-inline: 0;
+    }
+    #columna-logo-footer { flex: 0 0 30rem; padding: 1rem; }
+    #elements-footer { flex: 1; padding: 1rem; }
+}
+
+/* ==========================================================================
+   Escriptori (≥ 1024px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+    /* Capçalera */
+    header {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        width: min(100% - 2 * var(--gutter), var(--amplada-max));
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+    .logo-fuab { background-color: transparent; }
+    .logo-blanc,
+    .icona-menu { display: none; }
+    .logo-verd { display: block; width: 350px; }
+
+    #menupral,
+    #menupral.visible {
+        max-height: none;
+        opacity: 1;
+        overflow: visible;
+        padding: 0 0 0 1rem;
+        border-bottom-width: 0;
+        background: none;
+        text-align: right;
+        transition: none;
+    }
+    #menupral ul { display: flex; }
+
+    li.puntprincipal {
+        position: relative;
+        margin: 0 1em 0 0;
+        font-size: 2rem;
+    }
+    .puntprincipal.obert { border-bottom: 2px solid var(--verd); }
+
+    .menusecundari {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        width: 200px;
+        padding: 0;
+        text-align: right;
+        background-color: var(--blanc);
+        visibility: hidden;
+        transition: max-height 0.4s ease, opacity var(--transicio),
+                    padding var(--transicio), visibility 0s linear 0.4s;
+    }
+    .puntprincipal.obert .menusecundari {
+        max-height: 30em;
+        opacity: 1;
+        padding: 0.5em 0 0.5em 0.5em;
+        visibility: visible;
+        transition-delay: 0s;
+    }
+
+    .separador {
+        display: block;
+        height: 10px;
+        overflow: hidden;
+        background-color: var(--verd);
+    }
+
+    /* Portada */
+    #lema-portada {
+        max-width: var(--amplada-max);
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    #lema-portada > div { padding-right: 5rem; }
+    #lema-portada p { padding-top: 0; }
+
+    /* Interior */
+    #interior-principal {
+        display: flex;
+        gap: 20px;
+        width: min(100% - 2 * var(--gutter), var(--amplada-max));
+        margin: 3rem auto;
+        padding: 1rem;
+    }
+    #contingut { flex: 3 1 0%; width: auto; padding-right: 3rem; }
+
+    #menulateral-desplegable,
+    #tancalateral { display: none; }
+
+    #menulateral,
+    #menulateral.actiu {
+        position: static;
+        flex: 1 1 0%;
+        min-width: 0;
+        height: auto;
+        overflow: visible;
+        padding: 2rem;
+        background-color: transparent;
+        border: 0;
+        border-radius: 0;
+        transform: none;
+        visibility: visible;
+        transition: none;
+    }
+    #menulateral-principal {
+        order: 2;
+        margin-top: 3rem;
+        padding: 1rem;
+        background-color: var(--gris-fons);
+        border: 1px solid var(--gris-fons);
+        border-radius: var(--radi);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    #menulateral-principal h2 { font-size: 2.5rem; }
+    #menulateral-contacta { order: 1; padding: 0.5rem 0; }
+}
+
+/* Desplegables per hover només en dispositius amb ratolí */
+@media (min-width: 1024px) and (hover: hover) {
+    .puntprincipal:has(.menusecundari):is(:hover, :focus-within) {
+        border-bottom: 2px solid var(--verd);
+    }
+    .puntprincipal:is(:hover, :focus-within) .menusecundari {
+        max-height: 30em;
+        opacity: 1;
+        padding: 0.5em 0 0.5em 0.5em;
+        visibility: visible;
+        transition-delay: 0s;
+    }
+}
+
+/* ==========================================================================
+   Preferències de l'usuari
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
