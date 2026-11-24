@@ -14,8 +14,13 @@ i el projecte fa servir [versionat semàntic](https://semver.org/lang/ca/).
   de l'experiència, tot el que necessites per a la teva estada, el teu camí a
   Barcelona (sis passos), testimonis, contacte i preguntes freqüents.
 - Estils de la landing a `css/style.css` (secció 5b).
+- Bloc de contacte reaprofitable a la landing Study Abroad: formulari (nom i
+  cognoms, correu electrònic, perfil, comentaris i camp ocult `estudi`) i
+  opció de contacte per WeChat amb codi QR.
 
 ### Pendent
+- Adreça que processa el formulari de contacte (`action`).
+- Imatge del codi QR de WeChat (`img/wechat-qr.png`).
 - Contingut provisional a les seccions d'estada (descripcions), testimonis,
   contacte i preguntes freqüents.
 

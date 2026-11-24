@@ -260,17 +260,62 @@
             </div>
         </section>
 
-        <!-- 6. Contacta amb nosaltres -->
+        <!-- 6. Contacta amb nosaltres
+             BLOC REAPROFITABLE: per fer-lo servir en una altra landing, copia
+             la <section> sencera i canvia només el valor del camp ocult
+             "estudi". Els estils són a css/style.css («Bloc de contacte»). -->
         <section id="contacta" class="seccio-landing seccio-contacta" aria-labelledby="titol-contacta">
             <div class="seccio-interior">
                 <h2 id="titol-contacta" class="titol-seccio">联系我们</h2>
                 <p class="intro-seccio">有任何问题？我们的团队很乐意为你解答。</p>
-                <div class="contacta-accions">
-                    <a href="#" class="boto-blanc">发送咨询</a>
-                    <a href="#" class="boto-wechat">
-                        <img src="img/wechat.svg" alt="" width="28" height="28">
-                        微信咨询
-                    </a>
+
+                <div class="contacte-opcions">
+                    <!-- Opció 1: formulari -->
+                    <!-- PENDENT: definir l'adreça que processa el formulari (action) -->
+                    <form class="contacte-form" action="#" method="post" aria-labelledby="titol-form">
+                        <h3 id="titol-form" class="contacte-titol">在线咨询</h3>
+                        <p class="contacte-nota">带 <span class="obligatori" aria-hidden="true">*</span> 的为必填项</p>
+
+                        <input type="hidden" name="estudi" value="Study Abroad">
+
+                        <div class="camp">
+                            <label for="contacte-nom">姓名 <span class="obligatori" aria-hidden="true">*</span></label>
+                            <input type="text" id="contacte-nom" name="nom" autocomplete="name" required>
+                        </div>
+
+                        <div class="camp">
+                            <label for="contacte-email">电子邮箱 <span class="obligatori" aria-hidden="true">*</span></label>
+                            <input type="email" id="contacte-email" name="email" autocomplete="email" inputmode="email" required>
+                        </div>
+
+                        <div class="camp">
+                            <label for="contacte-perfil">你的身份 <span class="obligatori" aria-hidden="true">*</span></label>
+                            <select id="contacte-perfil" name="perfil" required>
+                                <option value="" disabled selected>请选择</option>
+                                <option value="alumne">学生</option>
+                                <option value="pare-mare">家长（父亲或母亲）</option>
+                                <option value="tutor-academic">学业导师</option>
+                            </select>
+                        </div>
+
+                        <div class="camp">
+                            <label for="contacte-comentaris">意见与建议</label>
+                            <textarea id="contacte-comentaris" name="comentaris" rows="5"></textarea>
+                        </div>
+
+                        <button type="submit" class="contacta-boto contacte-enviar">提交咨询</button>
+                    </form>
+
+                    <!-- Opció 2: WeChat -->
+                    <!-- PENDENT: afegir el QR a img/wechat-qr.png -->
+                    <aside class="contacte-wechat" aria-labelledby="titol-wechat">
+                        <h3 id="titol-wechat" class="contacte-titol">
+                            <img src="img/wechat.svg" alt="" width="28" height="28">
+                            微信咨询
+                        </h3>
+                        <p>用微信扫描二维码，直接与我们的顾问交流。</p>
+                        <img class="contacte-qr" src="img/wechat-qr.png" alt="FUAB 微信二维码" width="220" height="220" loading="lazy">
+                    </aside>
                 </div>
             </div>
         </section>

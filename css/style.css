@@ -597,36 +597,90 @@ li.puntprincipal {
 .testimoni figcaption { font-size: 1.5rem; color: #555; }
 .testimoni figcaption strong { display: block; font-size: 1.8rem; color: var(--text); }
 
-/* 6. Contacte */
+/* 6. Bloc de contacte (reaprofitable a altres landings) */
 .seccio-contacta { color: var(--blanc); background-color: var(--verd-fosc); }
 .seccio-contacta .titol-seccio { color: var(--blanc); }
-.contacta-accions {
+
+/* Formulari (més ample) + WeChat; s'apilen a mòbil */
+.contacte-opcions {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3.5rem;
+}
+@media (min-width: 900px) {
+    .contacte-opcions { grid-template-columns: 2fr 1fr; align-items: start; }
+}
+
+.contacte-form,
+.contacte-wechat {
+    padding: clamp(2rem, 1.5rem + 1.25vw, 3.2rem);
+    color: var(--text);
+    background-color: var(--blanc);
+    border-radius: var(--radi);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+.contacte-titol {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 3rem;
-}
-.boto-blanc,
-.boto-wechat {
-    display: inline-flex;
     align-items: center;
-    gap: 0.6em;
-    padding: 0.6em 1.6em;
-    font-size: clamp(1.8rem, 1.62rem + 0.45vw, 2.2rem);
-    font-weight: bold;
-    text-decoration: none;
-    border: 2px solid var(--blanc);
-    border-radius: 999px;
-    transition: background-color var(--transicio), color var(--transicio);
+    gap: 0.5em;
+    font-size: 2.4rem;
+    color: var(--verd-fosc);
 }
-.boto-blanc { color: var(--verd-fosc); background-color: var(--blanc); }
-.boto-blanc:hover { background-color: var(--gris-fons); }
-.boto-wechat { color: var(--blanc); background-color: transparent; }
-.boto-wechat:hover { background-color: rgba(255, 255, 255, 0.15); }
-.boto-wechat img { width: 1.4em; height: 1.4em; filter: brightness(0) invert(1); }
-.boto-blanc:focus-visible,
-.boto-wechat:focus-visible { outline: 3px solid var(--blanc); outline-offset: 3px; }
+.contacte-nota { margin-top: 0.4rem; font-size: 1.4rem; color: #555; }
+.obligatori { color: #c00; }
+
+.camp { margin-top: 2rem; }
+.camp label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: var(--fs-text);
+    font-weight: bold;
+}
+.camp input,
+.camp select,
+.camp textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: var(--fs-text);
+    color: var(--text);
+    background-color: var(--blanc);
+    border: 1px solid #767676;   /* contrast 4,5:1 sobre blanc */
+    border-radius: 8px;
+    transition: border-color var(--transicio), box-shadow var(--transicio);
+}
+.camp textarea { min-height: 12rem; resize: vertical; }
+.camp input:focus-visible,
+.camp select:focus-visible,
+.camp textarea:focus-visible {
+    outline: none;
+    border-color: var(--verd-fosc);
+    box-shadow: 0 0 0 3px rgba(0, 150, 57, 0.3);
+}
+/* Error només quan l'usuari ja ha interactuat amb el camp */
+.camp :user-invalid { border-color: #c00; }
+
+.contacte-enviar {
+    margin-top: 2.5rem;
+    padding: 0.8rem 1.6rem;
+    font-size: clamp(1.8rem, 1.62rem + 0.45vw, 2.2rem);
+}
+
+/* WeChat */
+.contacte-wechat { text-align: center; }
+.contacte-wechat .contacte-titol { justify-content: center; }
+.contacte-wechat .contacte-titol img { width: 1.2em; height: 1.2em; }
+.contacte-wechat p { margin-top: 1rem; font-size: var(--fs-text); }
+.contacte-qr {
+    display: block;
+    width: min(100%, 22rem);
+    aspect-ratio: 1;
+    margin: 2rem auto 0;
+    padding: 1rem;
+    object-fit: contain;
+    background-color: var(--gris-fons-clar);   /* es veu mentre no hi ha QR */
+    border: 1px solid var(--gris-fons);
+    border-radius: 8px;
+}
 
 /* 7. Preguntes freqüents */
 .faq { margin-top: 3rem; }
