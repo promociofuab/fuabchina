@@ -1,4 +1,4 @@
-name: Deploy a DreamHost
+name: Deploy
 
 on:
   push:
@@ -9,12 +9,12 @@ concurrency:
   group: deploy
   cancel-in-progress: false
 
-env:
-  DEPLOY_PATH: ~/fuabchina.enricpineda.cat/
-
 jobs:
-  deploy:
+  # Entorn de proves (DreamHost)
+  deploy-dreamhost:
     runs-on: ubuntu-latest
+    env:
+      DEPLOY_PATH: ~/fuabchina.enricpineda.cat/
     steps:
       - uses: actions/checkout@v4
 
@@ -33,3 +33,46 @@ jobs:
             --exclude 'README.md' \
             --exclude '.DS_Store' \
             ./ ${{ secrets.DH_USER }}@${{ secrets.DH_HOST }}:${{ env.DEPLOY_PATH }}
+
+  # Servidor definitiu (VPS Ubuntu + Caddy)
+  # La clau PROD_SSH_KEY està restringida al servidor amb rrsync:
+  # només pot sincronitzar dins /srv/fuab-china/ (la ruta remota és relativa a aquesta arrel).
+  deploy-prod:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PROD_HOST: 120.53.125.120
+      PROD_USER: ubuntu
+      # Empremta fixada del servidor (no es fa ssh-keyscan per evitar suplantacions)
+      # SHA256:dnmEGI99VD9Uow6SNeMoej0EEDclC6lcfXW6EvvDLQw
+      PROD_HOST_KEY: "120.53.125.120 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIITUsyLF5GX9J+MS+yziRtgk2wuEh+R63XVwlUyxO/sE"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configura SSH
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.PROD_SSH_KEY }}" > ~/.ssh/prod_key
+          chmod 600 ~/.ssh/prod_key
+          echo "$PROD_HOST_KEY" > ~/.ssh/known_hosts
+
+      - name: Sincronitza amb rsync
+        run: |
+          rsync -rlvz --delete --checksum \
+            --chmod=D755,F644 \
+            --exclude '.git*' \
+            --exclude '.github/' \
+            --exclude 'README.md' \
+            --exclude '.DS_Store' \
+            -e "ssh -i ~/.ssh/prod_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes" \
+            ./ "$PROD_USER@$PROD_HOST:./"
+
+      - name: Comprova que la web respon
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "http://$PROD_HOST/")
+          echo "HTTP $code"
+          test "$code" = "200"
+
+      - name: Esborra la clau
+        if: always()
+        run: rm -f ~/.ssh/prod_key
