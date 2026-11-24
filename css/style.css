@@ -682,6 +682,87 @@ li.puntprincipal {
     border-radius: 8px;
 }
 
+/* Capa flotant WeChat: amagada per defecte, visible a ≥1024px */
+.wechat-flotant { display: none; }
+@media (min-width: 1024px) {
+    .wechat-flotant {
+        position: fixed;
+        right: 8rem;
+        bottom: 0;
+        z-index: 400;               /* per sota del header i dels menús */
+        display: block;
+        width: min(250px, calc(100vw - 10rem));
+        padding: 1.2rem 4.4rem 2rem;   /* lateral: espai per al botó de plegar */
+        color: var(--blanc);
+        text-align: center;
+        background-color: var(--verd-fosc);   /* contrast AA amb text blanc */
+        border-radius: var(--radi) var(--radi) 0 0;   /* enganxada a baix */
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        transition: opacity var(--transicio), transform var(--transicio),
+                    padding var(--transicio), visibility 0s linear 0s;
+    }
+    .wechat-flotant.amagada {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(1.5rem);
+        transition: opacity var(--transicio), transform var(--transicio),
+                    visibility 0s linear 0.3s;
+    }
+}
+.wechat-flotant-titol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    font-size: 2rem;
+    color: var(--blanc);
+}
+.wechat-flotant-titol img { width: 1.2em; height: 1.2em; filter: invert(1); }
+
+/* Botó per plegar la capa: només en queda el títol, com una pestanya */
+.wechat-flotant-plega {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    display: grid;
+    place-items: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    padding: 0;
+    color: var(--blanc);
+    background: transparent;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color var(--transicio);
+}
+.wechat-flotant-plega:hover { background-color: rgba(255, 255, 255, 0.15); }
+.wechat-flotant-plega:focus-visible { outline: 3px solid var(--blanc); outline-offset: 1px; }
+.wechat-flotant-plega svg { transition: transform var(--transicio); }
+.wechat-flotant.plegada .wechat-flotant-plega svg { transform: rotate(180deg); }
+
+/* Plegat animat amb grid (0fr ↔ 1fr) */
+.wechat-flotant-cos {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows var(--transicio);
+}
+.wechat-flotant-cos > div { overflow: hidden; }
+.wechat-flotant.plegada .wechat-flotant-cos { grid-template-rows: 0fr; }
+.wechat-flotant.plegada { padding-bottom: 1.2rem; }
+.wechat-flotant.plegada .wechat-flotant-cos > div { visibility: hidden; transition: visibility 0s linear 0.3s; }
+.wechat-flotant p { margin-top: 0.8rem; font-size: 1.5rem; line-height: 1.4; }
+.wechat-flotant-qr {
+    display: block;
+    width: 16rem;
+    aspect-ratio: 1;
+    margin: 1.4rem auto 0;
+    padding: 0.8rem;
+    object-fit: contain;
+    background-color: var(--blanc);   /* es veu mentre no hi ha QR */
+    border-radius: 8px;
+}
+
 /* 7. Preguntes freqüents */
 .faq { margin-top: 3rem; }
 .faq details { border-bottom: 1px solid #ddd; }

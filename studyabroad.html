@@ -350,6 +350,29 @@
         </section>
     </main>
 
+    <!-- Capa flotant WeChat: només a pantalles grans (≥1024px).
+         S'amaga quan el scroll arriba al bloc de contacte (js/index.js).
+         Estils a css/style.css («Capa flotant WeChat»). -->
+    <!-- PENDENT: afegir el QR a img/wechat-qr.png (el mateix que al bloc de contacte) -->
+    <aside class="wechat-flotant" id="wechat-flotant" aria-labelledby="titol-wechat-flotant">
+        <h2 id="titol-wechat-flotant" class="wechat-flotant-titol">
+            <img src="img/wechat.svg" alt="" width="24" height="24">
+            微信咨询
+        </h2>
+        <button type="button" class="wechat-flotant-plega" id="wechat-flotant-plega"
+                aria-expanded="true" aria-controls="wechat-flotant-cos" aria-label="收起微信咨询">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <div class="wechat-flotant-cos" id="wechat-flotant-cos">
+            <div>
+                <p>用微信扫描二维码，直接与我们的顾问交流。</p>
+                <img class="wechat-flotant-qr" src="img/wechat-qr.png" alt="FUAB 微信二维码" width="160" height="160" loading="lazy">
+            </div>
+        </div>
+    </aside>
+
     <footer>
         <div id="columnes-footer">
             <div class="columna-footer" id="columna-logo-footer"><img class="logo-footer" src="img/logo-fuab-2.png" alt="FUAB · Fundació Universitat Autònoma de Barcelona">

@@ -43,3 +43,24 @@ elementsprincipals.forEach(puntmenu => {
         });
     });
 });
+
+// Capa flotant WeChat (landing): s'amaga quan el bloc de contacte entra a la
+// pantalla i es manté amagada mentre l'usuari és per sota del bloc.
+const wechatFlotant = document.getElementById("wechat-flotant");
+const blocContacte = document.getElementById("contacta");
+
+if (wechatFlotant && blocContacte && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([entrada]) => {
+        const amagar = entrada.isIntersecting || entrada.boundingClientRect.top < 0;
+        wechatFlotant.classList.toggle('amagada', amagar);
+    }).observe(blocContacte);
+}
+
+// Plegar/desplegar la capa flotant: plegada només en queda el títol
+const botoPlega = document.getElementById("wechat-flotant-plega");
+
+botoPlega?.addEventListener('click', () => {
+    const plegada = wechatFlotant.classList.toggle('plegada');
+    botoPlega.setAttribute('aria-expanded', !plegada);
+    botoPlega.setAttribute('aria-label', plegada ? '展开微信咨询' : '收起微信咨询');
+});
