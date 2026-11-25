@@ -670,6 +670,26 @@ li.puntprincipal {
 .contacte-wechat .contacte-titol { justify-content: center; }
 .contacte-wechat .contacte-titol img { width: 1.2em; height: 1.2em; }
 .contacte-wechat p { margin-top: 1rem; font-size: var(--fs-text); }
+/* «Cerca a WeChat» (com la barra de 微信搜一搜): bloc de contacte i capa flotant */
+.wechat-cerca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    padding: 0.6em 1em;
+    font-weight: bold;
+    color: var(--blanc);
+    background-color: var(--verd-fosc);   /* contrast AA amb text blanc */
+    border-radius: 8px;
+}
+.wechat-cerca svg { flex-shrink: 0; }
+.wechat-flotant .wechat-cerca {
+    padding: 0.5em 0.6em;
+    font-size: 1.4rem;
+    color: var(--verd-fosc);
+    background-color: var(--blanc);
+}
+
 .contacte-qr {
     display: block;
     width: min(100%, 22rem);
@@ -677,7 +697,7 @@ li.puntprincipal {
     margin: 2rem auto 0;
     padding: 1rem;
     object-fit: contain;
-    background-color: var(--gris-fons-clar);   /* es veu mentre no hi ha QR */
+    background-color: var(--blanc);
     border: 1px solid var(--gris-fons);
     border-radius: 8px;
 }
@@ -692,7 +712,7 @@ li.puntprincipal {
         z-index: 400;               /* per sota del header i dels menús */
         display: block;
         width: min(250px, calc(100vw - 10rem));
-        padding: 1.2rem 4.4rem 2rem;   /* lateral: espai per al botó de plegar */
+        padding: 1.2rem 2rem 2rem;
         color: var(--blanc);
         text-align: center;
         background-color: var(--verd-fosc);   /* contrast AA amb text blanc */
@@ -711,6 +731,7 @@ li.puntprincipal {
 }
 .wechat-flotant-titol {
     display: flex;
+    padding-inline: 2.4rem;   /* espai per al botó de plegar */
     align-items: center;
     justify-content: center;
     gap: 0.5em;
@@ -759,7 +780,7 @@ li.puntprincipal {
     margin: 1.4rem auto 0;
     padding: 0.8rem;
     object-fit: contain;
-    background-color: var(--blanc);   /* es veu mentre no hi ha QR */
+    background-color: var(--blanc);
     border-radius: 8px;
 }
 

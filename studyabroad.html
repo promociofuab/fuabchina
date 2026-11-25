@@ -307,14 +307,14 @@
                     </form>
 
                     <!-- Opció 2: WeChat -->
-                    <!-- PENDENT: afegir el QR a img/wechat-qr.png -->
                     <aside class="contacte-wechat" aria-labelledby="titol-wechat">
                         <h3 id="titol-wechat" class="contacte-titol">
                             <img src="img/wechat.svg" alt="" width="28" height="28">
                             微信咨询
                         </h3>
-                        <p>用微信扫描二维码，直接与我们的顾问交流。</p>
-                        <img class="contacte-qr" src="img/wechat-qr.png" alt="FUAB 微信二维码" width="220" height="220" loading="lazy">
+                        <p>用微信扫描二维码，或在「微信搜一搜」中搜索：</p>
+                        <p class="wechat-cerca"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M15.5 15.5l5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg><span>巴塞罗那自治大学基金会</span></p>
+                        <img class="contacte-qr" src="img/wechat-qr.png" alt="巴塞罗那自治大学基金会 微信二维码" width="220" height="220" loading="lazy">
                     </aside>
                 </div>
             </div>
@@ -353,7 +353,6 @@
     <!-- Capa flotant WeChat: només a pantalles grans (≥1024px).
          S'amaga quan el scroll arriba al bloc de contacte (js/index.js).
          Estils a css/style.css («Capa flotant WeChat»). -->
-    <!-- PENDENT: afegir el QR a img/wechat-qr.png (el mateix que al bloc de contacte) -->
     <aside class="wechat-flotant" id="wechat-flotant" aria-labelledby="titol-wechat-flotant">
         <h2 id="titol-wechat-flotant" class="wechat-flotant-titol">
             <img src="img/wechat.svg" alt="" width="24" height="24">
@@ -367,8 +366,9 @@
         </button>
         <div class="wechat-flotant-cos" id="wechat-flotant-cos">
             <div>
-                <p>用微信扫描二维码，直接与我们的顾问交流。</p>
-                <img class="wechat-flotant-qr" src="img/wechat-qr.png" alt="FUAB 微信二维码" width="160" height="160" loading="lazy">
+                <p>用微信扫描二维码，或在「微信搜一搜」中搜索：</p>
+                <p class="wechat-cerca"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M15.5 15.5l5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg><span>巴塞罗那自治大学基金会</span></p>
+                <img class="wechat-flotant-qr" src="img/wechat-qr.png" alt="巴塞罗那自治大学基金会 微信二维码" width="160" height="160" loading="lazy">
             </div>
         </div>
     </aside>

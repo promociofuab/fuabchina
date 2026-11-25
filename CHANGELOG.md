@@ -17,6 +17,9 @@ i el projecte fa servir [versionat semàntic](https://semver.org/lang/ca/).
 - Bloc de contacte reaprofitable a la landing Study Abroad: formulari (nom i
   cognoms, correu electrònic, perfil, comentaris i camp ocult `estudi`) i
   opció de contacte per WeChat amb codi QR.
+- Codi QR de WeChat (`img/wechat-qr.png`) i nom del compte per cercar-lo
+  («微信搜一搜»: 巴塞罗那自治大学基金会) al bloc de contacte i a la capa
+  flotant de la landing Study Abroad.
 
 ### Pendent
 - Adreça que processa el formulari de contacte (`action`).
