@@ -69,7 +69,7 @@ jobs:
 
       - name: Comprova que la web respon
         run: |
-          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "http://$PROD_HOST/")
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://uabchina.cn/")
           echo "HTTP $code"
           test "$code" = "200"
 
