@@ -137,6 +137,12 @@ header { display: flex; flex-direction: column; }
     border-bottom-width: 2px;
 }
 #menupral ul { list-style-type: none; }
+#menupral a {
+    color: inherit;
+    text-decoration: none;
+}
+#menupral a:hover,
+#menupral a[aria-current="page"] { color: var(--verd-fosc); }
 
 li.puntprincipal {
     margin-bottom: 1em;
@@ -157,6 +163,8 @@ li.puntprincipal {
     opacity: 1;
     padding-block: 0.5em;
 }
+.menusecundari li + li { margin-top: 0.8rem; }   /* espai entre opcions (mòbil) */
+.menusecundari a { display: block; padding-block: 0.5em; }   /* àrea tàctil més gran */
 
 .separador { display: none; }
 
@@ -898,7 +906,7 @@ footer { background-color: var(--negre); color: var(--blanc); }
         text-align: right;
         transition: none;
     }
-    #menupral ul { display: flex; }
+    #menupral > ul { display: flex; }   /* només el primer nivell en fila */
 
     li.puntprincipal {
         position: relative;
@@ -912,18 +920,21 @@ footer { background-color: var(--negre); color: var(--blanc); }
         top: 100%;
         left: 0;
         z-index: 1000;
-        width: 200px;
+        width: max-content;         /* cada opció en una sola línia */
+        min-width: 200px;
         padding: 0;
-        text-align: right;
+        text-align: left;
         background-color: var(--blanc);
         visibility: hidden;
         transition: max-height 0.4s ease, opacity var(--transicio),
                     padding var(--transicio), visibility 0s linear 0.4s;
     }
+    .menusecundari li + li { margin-top: 0.5rem; }  /* espai entre opcions */
+    .menusecundari a { padding-block: 0; }
     .puntprincipal.obert .menusecundari {
         max-height: 30em;
         opacity: 1;
-        padding: 0.5em 0 0.5em 0.5em;
+        padding: 1em 1.5em;
         visibility: visible;
         transition-delay: 0s;
     }
@@ -1012,7 +1023,7 @@ footer { background-color: var(--negre); color: var(--blanc); }
     .puntprincipal:is(:hover, :focus-within) .menusecundari {
         max-height: 30em;
         opacity: 1;
-        padding: 0.5em 0 0.5em 0.5em;
+        padding: 1em 1.5em;
         visibility: visible;
         transition-delay: 0s;
     }

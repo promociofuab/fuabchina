@@ -7,6 +7,8 @@ i el projecte fa servir [versionat semàntic](https://semver.org/lang/ca/).
 
 ## [Sense publicar]
 
+## [0.2.0] - 2026-11-26
+
 ### Afegit
 - Landing del programa Study Abroad (`studyabroad.html`) amb hero (imatge
   `estudiantxines01.jpg`, títol, quatre frases destacades i botó de contacte)
@@ -22,8 +24,16 @@ i el projecte fa servir [versionat semàntic](https://semver.org/lang/ca/).
   flotant de la landing Study Abroad.
 - Pàgina provisional de producció (`provisional/index.html`), en xinès, amb
   el logotip i el missatge «这里将成为巴塞罗那自治大学（UAB）国际学生项目的家园。».
+- Fitxer `.htaccess` (Apache) amb URL netes: cada pàgina es pot obrir com a
+  subdirectori (`/studyabroad/` serveix `studyabroad.html`); les adreces
+  `.html` antigues redirigeixen (301) a la versió neta.
 
 ### Canviat
+- Nou menú principal a totes les pàgines: 关于FUAB (Sobre la FUAB), 教育项目
+  (Programes educatius, desplegable amb Turisme i Direcció Hotelera, Espanyol a
+  Barcelona, Màsters Oficials, Study Abroad i Programes a mida), 我们的校园 (El
+  nostre Campus) i 巴塞罗那生活 (Vida a Barcelona). Traduccions pendents de
+  revisió; només l'enllaç de Study Abroad és real (`/studyabroad/`).
 - Desplegament per branques: `dev` es publica a DreamHost (proves) i `main`
   a Tencent (producció).
 - A producció només es publica la carpeta indicada a `PROD_SOURCE`
@@ -45,5 +55,6 @@ i el projecte fa servir [versionat semàntic](https://semver.org/lang/ca/).
   QS 2024) i informació sobre la universitat.
 - Fulls d'estil (`css/style.css`), script (`js/index.js`) i imatges.
 
-[Sense publicar]: https://github.com/promociofuab/fuabchina/compare/v0.1.0...HEAD
+[Sense publicar]: https://github.com/promociofuab/fuabchina/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/promociofuab/fuabchina/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/promociofuab/fuabchina/releases/tag/v0.1.0

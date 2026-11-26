@@ -1,0 +1,35 @@
+# URL netes: cada pàgina .html de l'arrel es pot servir com a subdirectori.
+#   /studyabroad/  ->  studyabroad.html
+#   /interior/     ->  interior.html
+# Nota: només funciona en servidors Apache (DreamHost). Caddy (producció) ignora aquest fitxer.
+
+Options -MultiViews
+DirectorySlash On
+RewriteEngine On
+RewriteBase /
+
+# 1. Redirigeix les adreces antigues (/pagina.html) a la versió neta (/pagina/).
+#    Es fa servir THE_REQUEST per evitar bucles amb la reescriptura interna.
+RewriteCond %{THE_REQUEST} \s/+([^/\s?]+)\.html[\s?] [NC]
+RewriteCond %1 !^index$ [NC]
+RewriteRule ^ /%1/ [R=301,L]
+
+# /index.html -> /
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^ / [R=301,L]
+
+# 2. Afegeix la barra final: /studyabroad -> /studyabroad/
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^/.]+)$ /$1/ [R=301,L]
+
+# 3. Recursos amb rutes relatives (css/, img/, js/) demanats des d'una URL neta:
+#    /studyabroad/css/style.css -> /css/style.css
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^[^/]+/((?:css|img|js)/.+)$ $1 [L]
+
+# 4. Serveix /pagina/ amb pagina.html (sense canviar l'adreça visible).
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^/.]+)/?$ $1.html [L]
