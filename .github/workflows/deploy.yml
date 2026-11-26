@@ -1,17 +1,20 @@
 name: Deploy
 
+# Branca dev  -> DreamHost (entorn de proves)
+# Branca main -> Tencent   (producció)
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   workflow_dispatch:
 
 concurrency:
-  group: deploy
+  group: deploy-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
   # Entorn de proves (DreamHost)
   deploy-dreamhost:
+    if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     env:
       DEPLOY_PATH: ~/fuabchina.enricpineda.cat/
@@ -38,11 +41,16 @@ jobs:
   # La clau PROD_SSH_KEY està restringida al servidor amb rrsync:
   # només pot sincronitzar dins /srv/fuab-china/ (la ruta remota és relativa a aquesta arrel).
   deploy-prod:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
       PROD_HOST: 120.53.125.120
       PROD_USER: ubuntu
+      # Carpeta que es publica a producció.
+      #   provisional/ -> només la pàgina provisional
+      #   ./           -> tota la web (quan es vulgui fer el llançament)
+      PROD_SOURCE: provisional/
       # Empremta fixada del servidor (no es fa ssh-keyscan per evitar suplantacions)
       # SHA256:dnmEGI99VD9Uow6SNeMoej0EEDclC6lcfXW6EvvDLQw
       PROD_HOST_KEY: "120.53.125.120 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIITUsyLF5GX9J+MS+yziRtgk2wuEh+R63XVwlUyxO/sE"
@@ -64,8 +72,9 @@ jobs:
             --exclude '.github/' \
             --exclude 'README.md' \
             --exclude '.DS_Store' \
+            --exclude '/provisional/' \
             -e "ssh -i ~/.ssh/prod_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes" \
-            ./ "$PROD_USER@$PROD_HOST:./"
+            "$PROD_SOURCE" "$PROD_USER@$PROD_HOST:./"
 
       - name: Comprova que la web respon
         run: |

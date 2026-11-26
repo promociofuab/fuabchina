@@ -20,6 +20,14 @@ i el projecte fa servir [versionat semàntic](https://semver.org/lang/ca/).
 - Codi QR de WeChat (`img/wechat-qr.png`) i nom del compte per cercar-lo
   («微信搜一搜»: 巴塞罗那自治大学基金会) al bloc de contacte i a la capa
   flotant de la landing Study Abroad.
+- Pàgina provisional de producció (`provisional/index.html`), en xinès, amb
+  el logotip i el missatge «这里将成为巴塞罗那自治大学（UAB）国际学生项目的家园。».
+
+### Canviat
+- Desplegament per branques: `dev` es publica a DreamHost (proves) i `main`
+  a Tencent (producció).
+- A producció només es publica la carpeta indicada a `PROD_SOURCE`
+  (ara `provisional/`); per publicar tota la web cal canviar-la a `./`.
 
 ### Pendent
 - Adreça que processa el formulari de contacte (`action`).
